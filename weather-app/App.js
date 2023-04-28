@@ -1,29 +1,30 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, FlatList, View } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import { useEffect, useState } from "react";
 import Header from "./src/ui/components/molecules/header";
 import api from "./src/infra/index";
 import CurrentWeather from "./src/ui/components/molecules/currentWeather";
-import ColumnForecast from "./src/ui/components/atoms/columnForecast";
 import DailyTemperature from "./src/ui/components/molecules/dailyTemperature";
+import NextForecast from "./src/ui/components/molecules/nextForecast";
+import cidades from "./src/core/utils/cityList";
 // import LinearGradient from "react-native-linear-gradient";
 
 export default function App() {
-  const [selectedOption, setSelectedOption] = useState("option1");
-  const [mainImg, setMainImg] = useState();
-  const [data, setData] = useState(weather);
-  const handleSelectOption = (optionValue) => {
-    setSelectedOption(optionValue);
-  };
+  const [selectedOption, setSelectedOption] = useState();
+  const [data, setData] = useState({});
 
   const handlePressButton = () => {
-    // handle button press here
+    if (selectedOption) {
+      api
+        .get(`&woeid=${selectedOption}`)
+        .then((response) => setData(response.data));
+    }
   };
 
   useEffect(() => {
+    setData({});
     api
-      .get(`/historical?&days_ago=3&mode=all`)
-      .then((response) => console.log("---", response.data.results));
+      .get(`&woeid=${selectedOption}`)
+      .then((response) => setData(response.data));
     // switch(response.data.results.condition_slug) {
     //   case 'clear_day':
     //    setMainImg
@@ -35,35 +36,31 @@ export default function App() {
     //     setIcon({ name: 'rainy', color: '#FFF' });
     //     break;
     // }
-  }, []);
-  if (data == {}) return <View></View>;
+  }, [selectedOption]);
+  if (Object.keys(data).length === 0)
+    return <View style={styles.container}></View>;
+
   return (
-    // <LinearGradient
-    //   colors={["#08244F", "#0B6FB8"]}
-    //   style={styles.linearGradient}
-    // >
+    
     <View style={styles.container}>
       <Header
-        placeholder={"Fortaleza"}
-        options={[
-          { label: "Fortaleza", value: "option1" },
-          { label: "Option 2", value: "option2" },
-          { label: "Option 3", value: "option3" },
-        ]}
+        options={cidades}
         selectedOption={selectedOption}
-        onSelectOption={handleSelectOption}
+        onSelectOption={(value) => setSelectedOption(value)}
         onPressButton={handlePressButton}
       />
       <CurrentWeather weather={data} />
-      <StatusBar style="auto" />
-
-      <DailyTemperature data={weather} />
+      <DailyTemperature data={data} />
+      <NextForecast data={data} />
     </View>
-    // </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
   container: {
     display: "flex",
     flex: 1,
