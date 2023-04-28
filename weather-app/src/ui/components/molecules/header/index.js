@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { View, SafeAreaView } from "react-native";
-// import { Picker } from "@react-native-picker/picker";
 import { TouchableHighlight, Image } from "react-native";
 import { headerStyles } from "./Styles";
-// import { MaterialIcons } from "@expo/vector-icons";
 import CustomPicker from "../../atoms/picker";
 
 const Header = ({
@@ -11,7 +9,7 @@ const Header = ({
   selectedOption,
   onSelectOption,
   onPressButton,
-  buttonText,
+  placeholder,
 }) => {
   const [localSelectedOption, setLocalSelectedOption] =
     useState(selectedOption);
@@ -30,7 +28,7 @@ const Header = ({
         <View style={headerStyles.selectContainer}>
           <CustomPicker
             items={options}
-            placeholder={"a9a"}
+            placeholder={placeholder}
             value={localSelectedOption}
             onValueChange={(value) => handleSelectOption(value)}
           ></CustomPicker>

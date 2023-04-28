@@ -8,8 +8,6 @@ export const headerStyles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     backgroundColor: "transparent",
-    borderBottomWidth: 1,
-    borderBottomColor: "transparent",
   },
   title: {
     fontSize: 20,
@@ -25,7 +23,7 @@ export const headerStyles = StyleSheet.create({
   },
   picker: {
     flex: 1,
-    backgroundColor: "transparent", 
+    backgroundColor: "transparent",
   },
   button: {},
   buttonText: {},
@@ -35,6 +33,6 @@ export const headerStyles = StyleSheet.create({
     top: 50,
     left: 0,
     right: 0,
-    zIndex: 10, 
+    zIndex: 10,
   },
 });
