@@ -5,7 +5,7 @@ import styles from "./Style";
 
 import moment from "moment";
 
-export default function DailyTemperature({ data }) {
+export default function DailyTemperature({ data, background }) {
   return (
     <View style={styles.container}>
       <View style={styles.containerTitle}>

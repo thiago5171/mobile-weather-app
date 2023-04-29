@@ -10,7 +10,7 @@ import cidades from "./src/core/utils/cityList";
 
 export default function App() {
   const [selectedOption, setSelectedOption] = useState();
-  const [data, setData] = useState({});
+  const [data, setData] = useState(weather);
 
   const handlePressButton = () => {
     if (selectedOption) {
@@ -41,27 +41,29 @@ export default function App() {
     return <View style={styles.container}></View>;
 
   return (
-    
-    <View style={styles.container}>
-      <Header
-        options={cidades}
-        selectedOption={selectedOption}
-        onSelectOption={(value) => setSelectedOption(value)}
-        onPressButton={handlePressButton}
-      />
-      <CurrentWeather weather={data} />
-      <DailyTemperature data={data} />
-      <NextForecast data={data} />
-    </View>
+    <ScrollView style={styles.scrollView}>
+      <View style={styles.container}>
+        <Header
+          options={cidades}
+          selectedOption={selectedOption}
+          onSelectOption={(value) => setSelectedOption(value)}
+          onPressButton={handlePressButton}
+        />
+        <CurrentWeather weather={data} />
+        <DailyTemperature data={data} />
+
+        <NextForecast data={data} />
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   scrollView: {
-    alignItems: "center",
-    justifyContent: "flex-start",
+    flex: 1,
   },
   container: {
+    height: "100%",
     display: "flex",
     flex: 1,
     backgroundColor: "#08244F",
