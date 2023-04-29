@@ -24,7 +24,14 @@ export default function App() {
     setData({});
     api
       .get(`&woeid=${selectedOption}`)
-      .then((response) => setData(response.data));
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setData(weather);
+        return alert("Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde.",);
+      });
     // switch(response.data.results.condition_slug) {
     //   case 'clear_day':
     //    setMainImg

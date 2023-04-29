@@ -5,13 +5,13 @@ import getCompleteDayWeek from "../../../../core/utils/getCompleteDayWeek";
 
 function RowForecast({ item }) {
   return (
-    <View style={styles.containerForecastRow} key={item.date}>
+    <View style={styles.containerForecastRow} >
       <Text style={styles.textRow}>{getCompleteDayWeek(item.weekday)}</Text>
       <Image
         style={styles.iconContainerInsideTable}
         source={require("../../../assets/sun.png")}
       />
-      <Text style={styles.textRow}>
+      <Text style={styles.textRowTemperature}>
         {"  "}
         {item.min}ºc{"  "}
         {item.max}ºc

@@ -20,8 +20,14 @@ export default function NextForecast({ data, background }) {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.containerForecast}>
-          {data?.results?.forecast.map((item) => {
-            return <RowForecast item={item} />;
+          {data?.results?.forecast.map((item, index) => {
+            return (
+              <RowForecast
+                key={`${item.date}-${index}`}
+                item={item}
+                index={index}
+              />
+            );
           })}
         </View>
       </ScrollView>
