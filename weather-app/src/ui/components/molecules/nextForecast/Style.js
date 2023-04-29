@@ -2,12 +2,14 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
+    flex1: 1,
+    flexDirection: "column",
     borderRadius: 20,
     width: "86%",
-    height: 217,
+    maxHeight: 217,
     backgroundColor: "#001026",
     marginTop: 15,
+    marginBottom: 25,
     alignContent: "center",
   },
   containerTitle: {
@@ -19,6 +21,11 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+
+  containerForecast: {
+    paddingBottom: "5%",
+    margin: "5%",
   },
   title: {
     fontSize: 20,
@@ -33,7 +40,7 @@ const styles = StyleSheet.create({
   forecast: {
     width: "100%",
     height: 50,
-    backgroundColor: "transparent",
+    backgroundColor: "#fff",
   },
   containerForecastRow: {
     flexDirection: "row",
@@ -55,6 +62,9 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     padding: 5,
+  },
+  scrollView: {
+    height: 200,
   },
 });
 

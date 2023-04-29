@@ -1,28 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 import styles from "./Style";
+import RowForecast from "../../atoms/rowForecast";
 
-function getCompleteDayWeek(day) {
-  switch (day) {
-    case "Seg":
-      return "Monday";
-    case "Ter":
-      return "Tuesday";
-    case "Qua":
-      return "Wednesday";
-    case "Qui":
-      return "Thursday";
-    case "Sex":
-      return "Friday";
-    case "Sáb":
-      return "Saturday";
-    case "Dom":
-      return "Sunday";
-    default:
-      return null;
-  }
-}
-export default function NextForecast({ data }) {
+export default function NextForecast({ data, background }) {
   return (
     <View style={styles.container}>
       <View style={styles.containerTitle}>
@@ -32,32 +13,18 @@ export default function NextForecast({ data }) {
           source={require("../../../assets/calendar.png")}
         />
       </View>
-      <FlatList
-        showsHorizontalScrollIndicator={true}
-        horizontal={false}
-        contentContainerStyle={{ paddingBottom: "5%" }}
-        style={styles.forecast}
-        data={data?.results?.forecast}
-        keyExtractor={(item) => item.date}
-        renderItem={({ item }) => {
-          return (
-            <View style={styles.containerForecastRow}>
-              <Text style={styles.textRow}>
-                {getCompleteDayWeek(item.weekday)}
-              </Text>
-              <Image
-                style={styles.iconCOntainerInsideTable}
-                source={require("../../../assets/sun.png")}
-              />
-              <Text style={styles.textRow}>
-                {"  "}
-                {item.min}ºc{"  "}
-                {item.max}ºc
-              </Text>
-            </View>
-          );
-        }}
-      />
+      <ScrollView
+        style={styles.scrollView}
+        directionalLockEnabled={true}
+        nestedScrollEnabled={true}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.containerForecast}>
+          {data?.results?.forecast.map((item) => {
+            return <RowForecast item={item} />;
+          })}
+        </View>
+      </ScrollView>
     </View>
   );
 }
