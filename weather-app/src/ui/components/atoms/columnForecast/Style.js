@@ -37,12 +37,8 @@ const styles = StyleSheet.create({
   temperature: {
     alignItems: "center",
   },
-  textMin: {
-    color: "#FFF",
-    fontSize: 14,
-    fontWeight: "500",
-  },
-  textMax: {
+ 
+  textMaxAndMin: {
     color: "#FFF",
     fontSize: 18,
   },

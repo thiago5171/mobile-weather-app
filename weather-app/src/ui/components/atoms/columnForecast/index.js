@@ -8,7 +8,7 @@ export default function ColumnForecast({ data }) {
   return (
     <View style={ isToday ? styles.contentWithBorder : styles.content  }>
       <View style={styles.temperature}>
-        <Text style={styles.textMax}>{data.max}°C</Text>
+        <Text style={styles.textMaxAndMin}>{data.max}°C</Text>
       </View>
       <Image style={styles.icon} source={require("../../../assets/sun.png")} />
       <Text style={styles.date}>{data.date}</Text>
