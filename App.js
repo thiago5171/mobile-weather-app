@@ -6,6 +6,7 @@ import CurrentWeather from "./src/ui/components/molecules/currentWeather";
 import DailyTemperature from "./src/ui/components/molecules/dailyTemperature";
 import NextForecast from "./src/ui/components/molecules/nextForecast";
 import cidades from "./src/core/utils/cityList";
+import Loading from "./src/ui/components/atoms/loading";
 // import LinearGradient from "react-native-linear-gradient";
 
 export default function App() {
@@ -16,10 +17,17 @@ export default function App() {
     if (selectedOption) {
       api
         .get(`&woeid=${selectedOption}`)
-        .then((response) => setData(response.data));
+        .then((response) => setData(response.data))
+        .catch((error) => {
+          console.log(error.config);
+          setData(weather);
+          return alert(
+            "Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde."
+          );
+        });
     }
   };
-
+  console.log(selectedOption);
   useEffect(() => {
     setData({});
     api
@@ -35,8 +43,7 @@ export default function App() {
         );
       });
   }, [selectedOption]);
-  if (Object.keys(data).length === 0)
-    return <View style={styles.container}></View>;
+  if (Object.keys(data).length === 0) return <Loading />;
 
   return (
     <ScrollView style={styles.scrollView}>
