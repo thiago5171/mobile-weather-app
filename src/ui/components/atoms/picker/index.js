@@ -3,14 +3,14 @@ import { View, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./Styles";
 import RNPickerSelect from "react-native-picker-select";
-import cidades from "../../../../core/utils/cityList";
+import cities from "../../../../core/utils/cityList";
 const CustomPicker = ({ value, items, onValueChange }) => {
   return (
     <View>
       <RNPickerSelect
         placeholder={{
-          label: cidades[0].label,
-          value: cidades[0].value,
+          label: cities[0].label,
+          value: cities[0].value,
         }}
         value={value}
         items={items}

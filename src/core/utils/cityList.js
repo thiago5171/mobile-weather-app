@@ -1,4 +1,4 @@
-const cidades = [
+const cities = [
   { value: '455827', label: 'São Paulo' },
   { value: '455821', label: 'Rio de Janeiro' },
   { value: '455825', label: 'Belo Horizonte' },
@@ -26,4 +26,4 @@ const cidades = [
   { value: '455841', label: 'Boa Vista' },
   { value: '455842', label: 'Palmas' },
 ];
-export default cidades;
+export default cities;

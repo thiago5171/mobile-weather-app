@@ -5,9 +5,9 @@ import api from "./src/infra/index";
 import CurrentWeather from "./src/ui/components/molecules/currentWeather";
 import DailyTemperature from "./src/ui/components/molecules/dailyTemperature";
 import NextForecast from "./src/ui/components/molecules/nextForecast";
-import cidades from "./src/core/utils/cityList";
+import cities from "./src/core/utils/cityList";
 import Loading from "./src/ui/components/atoms/loading";
-// import LinearGradient from "react-native-linear-gradient";
+import LinearGradient from "react-native-linear-gradient";
 
 export default function App() {
   const [selectedOption, setSelectedOption] = useState(455827);
@@ -47,18 +47,25 @@ export default function App() {
 
   return (
     <ScrollView style={styles.scrollView}>
-      <View style={styles.container}>
-        <Header
-          options={cidades}
-          selectedOption={selectedOption}
-          onSelectOption={(value) => setSelectedOption(value)}
-          onPressButton={handlePressButton}
-        />
-        <CurrentWeather weather={data} />
-        <DailyTemperature data={data} />
+      <LinearGradient
+        colors={["#4c669f", "#3b5998", "#192f6a"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        style={{ flex: 1 }}
+      >
+        <View style={styles.container}>
+          <Header
+            options={cities}
+            selectedOption={selectedOption}
+            onSelectOption={(value) => setSelectedOption(value)}
+            onPressButton={handlePressButton}
+          />
+          <CurrentWeather weather={data} />
+          <DailyTemperature data={data} />
 
-        <NextForecast data={data} />
-      </View>
+          <NextForecast data={data} />
+        </View>
+      </LinearGradient>
     </ScrollView>
   );
 }
