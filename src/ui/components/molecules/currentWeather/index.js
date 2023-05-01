@@ -2,12 +2,21 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Image } from "react-native";
 import styles from "./Styles";
+import SelectedWeatherSituation from "../../../../core/utils/selectedWeatherSituation";
+import Components from "../../../../core/utils/enum/components";
 
 function CurrentWeather({ background, weather }) {
   return (
     <View style={styles.container} colors={background}>
       <View style={styles.floatContainer}>
-        <Image source={require("../../../assets/cloudy-sun.png")} />
+        {/* <Image source={require("../../../assets/cloudy-sun.png")} /> */}
+        <View>
+          {SelectedWeatherSituation(
+            weather?.results?.description,
+            styles.mainImage,
+            Components.CURRENT_WEATHER
+          )}
+        </View>
         <Text style={styles.temperature}>{weather?.results?.temp}°</Text>
         <Text style={styles.defaultText}>Preciptations</Text>
         <Text style={styles.defaultText}>

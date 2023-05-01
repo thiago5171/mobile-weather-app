@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "#fff",
     justifyContent: "center",
-    width: "35%",
+    width: "45%",
     alignItems: "center",
   }, 
   textRowTemperature: {
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     
   },
   iconContainerInsideTable: {
-    width: 24,
-    height: 24,
+    width: 35,
+    height: 35,
     padding: 5,
   },
 });

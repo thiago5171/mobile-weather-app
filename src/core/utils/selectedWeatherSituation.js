@@ -24,13 +24,46 @@ function SelectedWeatherSituation(situation, styles, locale) {
       );
     }
   } else if (locale === Components.CURRENT_WEATHER) {
+    if (situation.includes("Chuvas")) {
+      return (
+        <Image
+          style={styles}
+          source={require("../../ui/assets/sun-cloud-angled-rain.png")}
+        />
+      );
+    } else if (situation.includes("limpo")) {
+      return (
+        <Image
+          style={styles}
+          source={require("../../ui/assets/main-sun.png")}
+        />
+      );
+    } else {
+      return (
+        <Image
+          style={styles}
+          source={require("../../ui/assets/main-sun-moon.png")}
+        />
+      );
+    }
   } else if (locale === Components.NEXT_FORECAST) {
+    if (situation.includes("Chuvas")) {
+      return (
+        <Image
+          style={styles}
+          source={require("../../ui/assets/big-rain-drops.png")}
+        />
+      );
+    } else if (situation.includes("limpo")) {
+      return (
+        <Image style={styles} source={require("../../ui/assets/sun.png")} />
+      );
+    } else {
+      return (
+        <Image style={styles} source={require("../../ui/assets/cloudy.png")} />
+      );
+    }
   }
 }
 
 export default SelectedWeatherSituation;
-// else if (situation.includes("Sol")) {
-//   return (
-//     <Image style={styles} source={require("../../ui/assets/sun.png")} />
-//   );
-// } 

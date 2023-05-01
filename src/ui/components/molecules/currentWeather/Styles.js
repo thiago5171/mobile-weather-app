@@ -6,11 +6,18 @@ const styles = StyleSheet.create({
     height: "auto",
     width: "86%",
     display: "flex",
+  },
+  mainImage: {
     
+    height: 260,
+    width: 284,
+    padding: 10,
+    alignSelf: "center",
   },
   floatContainer: {
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
+
     borderRadius: 10,
   },
   defaultText: {
