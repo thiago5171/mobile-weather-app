@@ -31,13 +31,13 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   icon: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
   },
   temperature: {
     alignItems: "center",
   },
- 
+
   textMaxAndMin: {
     color: "#FFF",
     fontSize: 18,

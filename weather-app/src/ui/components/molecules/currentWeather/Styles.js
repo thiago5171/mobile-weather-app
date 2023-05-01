@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     height: "auto",
     width: "86%",
     display: "flex",
+    
   },
   floatContainer: {
     alignItems: "center",
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   footer: {
     justifyContent: "space-between",
     flexDirection: "row",
-    backgroundColor: "#001026",
+    backgroundColor: "#104084",
     height: 47,
     alignItems: "center",
     alignContent: "center",

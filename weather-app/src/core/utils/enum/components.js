@@ -1,0 +1,7 @@
+const Components = {
+  CURRENT_WEATHER: "CURRENT_WEATHER",
+  DAILY_TEMPERATURE: "DAILY_TEMPERATURE",
+  NEXT_FORECAST: "CURRENT_WEATHER",
+};
+
+export default Components;

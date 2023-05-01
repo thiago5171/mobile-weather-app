@@ -9,8 +9,8 @@ import cidades from "./src/core/utils/cityList";
 // import LinearGradient from "react-native-linear-gradient";
 
 export default function App() {
-  const [selectedOption, setSelectedOption] = useState();
-  const [data, setData] = useState(weather);
+  const [selectedOption, setSelectedOption] = useState(455827);
+  const [data, setData] = useState({});
 
   const handlePressButton = () => {
     if (selectedOption) {
@@ -28,21 +28,12 @@ export default function App() {
         setData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.config);
         setData(weather);
-        return alert("Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde.",);
+        return alert(
+          "Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde."
+        );
       });
-    // switch(response.data.results.condition_slug) {
-    //   case 'clear_day':
-    //    setMainImg
-    //     break;
-    //   case 'rain':
-    //     setIcon({ name: 'rainy', color: '#FFF' });
-    //     break;
-    //   case 'storm':
-    //     setIcon({ name: 'rainy', color: '#FFF' });
-    //     break;
-    // }
   }, [selectedOption]);
   if (Object.keys(data).length === 0)
     return <View style={styles.container}></View>;
@@ -87,85 +78,49 @@ const styles = StyleSheet.create({
 });
 
 const weather = {
-  by: "default",
-  valid_key: false,
+  by: "woeid",
+  valid_key: true,
   results: {
-    temp: 21,
-    date: "27/04/2023",
-    time: "11:13",
-    condition_code: "29",
-    description: "Parcialmente nublado",
-    currently: "dia",
+    temp: 20,
+    date: "30/04/2023",
+    time: "22:08",
+    condition_code: "28",
+    description: "Tempo nublado",
+    currently: "noite",
     cid: "",
     city: "São Paulo, SP",
-    img_id: "29",
-    humidity: 76,
-    cloudiness: 40.0,
+    img_id: "28n",
+    humidity: 90,
+    cloudiness: 75.0,
     rain: 0.0,
-    wind_speedy: "4.63 km/h",
-    wind_direction: 300,
-    sunrise: "06:24 am",
-    sunset: "05:43 pm",
-    condition_slug: "cloud",
+    wind_speedy: "3.09 km/h",
+    wind_direction: 160,
+    sunrise: "06:26 am",
+    sunset: "05:41 pm",
+    condition_slug: "cloudly_night",
     city_name: "São Paulo",
     forecast: [
       {
-        date: "27/04",
-        weekday: "Qui",
-        max: 23,
-        min: 16,
-        cloudiness: 88.0,
-        rain: 1.26,
-        rain_probability: 85,
-        wind_speedy: "4.38 km/h",
-        description: "Chuvas esparsas",
-        condition: "rain",
-      },
-      {
-        date: "28/04",
-        weekday: "Sex",
-        max: 22,
-        min: 16,
-        cloudiness: 68.0,
-        rain: 0.0,
-        rain_probability: 19,
-        wind_speedy: "4.46 km/h",
-        description: "Tempo nublado",
-        condition: "cloudly_day",
-      },
-      {
-        date: "29/04",
-        weekday: "Sáb",
-        max: 21,
-        min: 15,
-        cloudiness: 87.0,
-        rain: 0.36,
-        rain_probability: 57,
-        wind_speedy: "3.89 km/h",
-        description: "Chuvas esparsas",
-        condition: "rain",
-      },
-      {
         date: "30/04",
         weekday: "Dom",
-        max: 26,
+        max: 25,
         min: 16,
-        cloudiness: 1.0,
-        rain: 0.15,
-        rain_probability: 22,
-        wind_speedy: "2.95 km/h",
-        description: "Chuvas esparsas",
-        condition: "rain",
+        cloudiness: 17.0,
+        rain: 0.0,
+        rain_probability: 18,
+        wind_speedy: "2.54 km/h",
+        description: "Parcialmente nublado",
+        condition: "cloudly_day",
       },
       {
         date: "01/05",
         weekday: "Seg",
-        max: 26,
+        max: 25,
         min: 16,
         cloudiness: 0.0,
         rain: 0.0,
-        rain_probability: 2,
-        wind_speedy: "3.23 km/h",
+        rain_probability: 20,
+        wind_speedy: "3.46 km/h",
         description: "Tempo limpo",
         condition: "clear_day",
       },
@@ -173,64 +128,100 @@ const weather = {
         date: "02/05",
         weekday: "Ter",
         max: 26,
-        min: 17,
+        min: 16,
         cloudiness: 0.0,
-        rain: 0.3,
-        rain_probability: 25,
-        wind_speedy: "1.89 km/h",
-        description: "Chuvas esparsas",
-        condition: "rain",
+        rain: 0.0,
+        rain_probability: 2,
+        wind_speedy: "1.63 km/h",
+        description: "Tempo limpo",
+        condition: "clear_day",
       },
       {
         date: "03/05",
         weekday: "Qua",
         max: 26,
         min: 16,
-        cloudiness: 0.0,
+        cloudiness: 19.0,
         rain: 0.0,
         rain_probability: 0,
-        wind_speedy: "3.17 km/h",
-        description: "Tempo limpo",
-        condition: "clear_day",
+        wind_speedy: "3.47 km/h",
+        description: "Parcialmente nublado",
+        condition: "cloudly_day",
       },
       {
         date: "04/05",
         weekday: "Qui",
-        max: 27,
+        max: 26,
         min: 16,
-        cloudiness: 39.0,
+        cloudiness: 53.0,
         rain: 0.0,
         rain_probability: 0,
-        wind_speedy: "3.82 km/h",
-        description: "Parcialmente nublado",
-        condition: "cloud",
+        wind_speedy: "6.25 km/h",
+        description: "Tempo nublado",
+        condition: "cloudly_day",
       },
       {
         date: "05/05",
         weekday: "Sex",
-        max: 28,
+        max: 26,
         min: 17,
-        cloudiness: 1.0,
+        cloudiness: 55.0,
         rain: 0.0,
-        rain_probability: 0,
-        wind_speedy: "4.53 km/h",
-        description: "Tempo limpo",
-        condition: "clear_day",
+        rain_probability: 13,
+        wind_speedy: "4.74 km/h",
+        description: "Tempo nublado",
+        condition: "cloudly_day",
       },
       {
         date: "06/05",
         weekday: "Sáb",
-        max: 28,
-        min: 18,
-        cloudiness: 49.0,
-        rain: 0.0,
-        rain_probability: 3,
-        wind_speedy: "6.23 km/h",
-        description: "Parcialmente nublado",
-        condition: "cloud",
+        max: 20,
+        min: 16,
+        cloudiness: 100.0,
+        rain: 4.86,
+        rain_probability: 92,
+        wind_speedy: "4.77 km/h",
+        description: "Chuva",
+        condition: "rain",
+      },
+      {
+        date: "07/05",
+        weekday: "Dom",
+        max: 17,
+        min: 15,
+        cloudiness: 100.0,
+        rain: 11.2,
+        rain_probability: 100,
+        wind_speedy: "3.92 km/h",
+        description: "Chuva",
+        condition: "rain",
+      },
+      {
+        date: "08/05",
+        weekday: "Seg",
+        max: 21,
+        min: 14,
+        cloudiness: 99.0,
+        rain: 0.75,
+        rain_probability: 77,
+        wind_speedy: "3.14 km/h",
+        description: "Chuvas esparsas",
+        condition: "rain",
+      },
+      {
+        date: "09/05",
+        weekday: "Ter",
+        max: 23,
+        min: 16,
+        cloudiness: 55.0,
+        rain: 3.4,
+        rain_probability: 93,
+        wind_speedy: "3.45 km/h",
+        description: "Chuvas esparsas",
+        condition: "rain",
       },
     ],
-    cref: "fc865d",
+    cref: "ec14fd",
   },
   execution_time: 0.0,
   from_cache: true,
