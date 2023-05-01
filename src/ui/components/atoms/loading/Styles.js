@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#08244F",
+    backgroundColor: "#104084",
   },
   loadingText: {
     fontSize: 20,
@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
   spinner: {
     marginBottom: 50,
     alignItems: "center",
+  },
+  linearGradient: {
+    flex: 1,
   },
 });
 

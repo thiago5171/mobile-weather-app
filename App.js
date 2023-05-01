@@ -7,33 +7,44 @@ import DailyTemperature from "./src/ui/components/molecules/dailyTemperature";
 import NextForecast from "./src/ui/components/molecules/nextForecast";
 import cities from "./src/core/utils/cityList";
 import Loading from "./src/ui/components/atoms/loading";
-import LinearGradient from "react-native-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
+import colors from "./src/ui/utils/generalColor";
 
 export default function App() {
   const [selectedOption, setSelectedOption] = useState(455827);
   const [data, setData] = useState({});
+  const [color, setColor] = useState(colors.clearDay);
 
-  const handlePressButton = () => {
-    if (selectedOption) {
-      api
-        .get(`&woeid=${selectedOption}`)
-        .then((response) => setData(response.data))
-        .catch((error) => {
-          console.log(error.config);
-          setData(weather);
-          return alert(
-            "Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde."
-          );
-        });
-    }
+  const handlePressButton = (selectedOption) => {
+    setData({});
+    setSelectedOption(selectedOption);
+    api
+      .get("", { params: { woeid: selectedOption } })
+      .then((response) => {
+        setData(response.data);
+        if (response.data.results.currently === "noite") {
+          setColor(colors.rainDay);
+        }
+      })
+      .catch((error) => {
+        console.log(error.config);
+        return alert(
+          "Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde."
+        );
+      });
   };
-  console.log(selectedOption);
+
   useEffect(() => {
     setData({});
     api
-      .get(`&woeid=${selectedOption}`)
+      .get("", { params: { woeid: selectedOption } })
       .then((response) => {
         setData(response.data);
+        if (response.data.results.currently === 'noite' || response.data.results.currently.includes('Chuva') ) {
+          setColor(colors.rainDay);
+        }else {
+          setColor(colors.clearDay)
+        }
       })
       .catch((error) => {
         console.log(error.config);
@@ -42,28 +53,26 @@ export default function App() {
           "Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde."
         );
       });
-  }, [selectedOption]);
+  }, []);
+
   if (Object.keys(data).length === 0) return <Loading />;
 
   return (
     <ScrollView style={styles.scrollView}>
       <LinearGradient
-        colors={["#4c669f", "#3b5998", "#192f6a"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1 }}
-        style={{ flex: 1 }}
+        colors={color.backgroundColor}
+        style={styles.linearGradient}
       >
         <View style={styles.container}>
           <Header
             options={cities}
             selectedOption={selectedOption}
-            onSelectOption={(value) => setSelectedOption(value)}
-            onPressButton={handlePressButton}
+            onSelectOption={(value) => handlePressButton(value)}
           />
-          <CurrentWeather weather={data} />
-          <DailyTemperature data={data} />
+          <CurrentWeather weather={data} color={color} />
+          <DailyTemperature color={color} data={data} />
 
-          <NextForecast data={data} />
+          <NextForecast data={data} color={color} />
         </View>
       </LinearGradient>
     </ScrollView>
@@ -71,22 +80,16 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
+  scrollView: {},
   container: {
     height: "100%",
     display: "flex",
     flex: 1,
-    backgroundColor: "#08244F",
     alignItems: "center",
     justifyContent: "center",
   },
   linearGradient: {
     flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5,
   },
   forecast: { width: "80%", height: 100 },
 });

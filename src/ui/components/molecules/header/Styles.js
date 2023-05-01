@@ -26,8 +26,14 @@ export const headerStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: "transparent",
   },
-  button: {},
-  buttonText: {},
+  iconNotify: {
+    width: 29,
+    height: 27,
+  },
+  iconLocation: {
+    width: 27,
+    height: 27,
+  },
   header: {
     backgroundColor: "transparent",
     position: "absolute",

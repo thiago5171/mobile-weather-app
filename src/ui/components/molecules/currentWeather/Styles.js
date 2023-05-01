@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     display: "flex",
   },
   mainImage: {
-    
     height: 260,
     width: 284,
     padding: 10,
@@ -43,7 +42,6 @@ const styles = StyleSheet.create({
   footer: {
     justifyContent: "space-between",
     flexDirection: "row",
-    backgroundColor: "#104084",
     height: 47,
     alignItems: "center",
     alignContent: "center",

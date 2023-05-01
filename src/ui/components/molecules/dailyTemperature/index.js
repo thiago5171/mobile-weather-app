@@ -1,13 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import ColumnForecast from "../../atoms/columnForecast";
 import styles from "./Style";
-
 import moment from "moment";
 
-export default function DailyTemperature({ data, background }) {
+export default function DailyTemperature({ data, color }) {
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, backgroundColor: color.boxColor }}>
       <View style={styles.containerTitle}>
         <Text style={styles.title}>Today</Text>
         <Text style={styles.title}>{moment().format("MMMM, DD")} </Text>

@@ -3,9 +3,9 @@ import { View, Text, Image, ScrollView } from "react-native";
 import styles from "./Style";
 import RowForecast from "../../atoms/rowForecast";
 
-export default function NextForecast({ data, background }) {
+export default function NextForecast({ data, color }) {
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, backgroundColor: color.boxColor }}>
       <View style={styles.containerTitle}>
         <Text style={styles.title}>Next Forecast</Text>
         <Image

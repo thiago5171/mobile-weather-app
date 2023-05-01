@@ -1,15 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { Image } from "react-native";
 import styles from "./Styles";
 import SelectedWeatherSituation from "../../../../core/utils/selectedWeatherSituation";
 import Components from "../../../../core/utils/enum/components";
 
-function CurrentWeather({ background, weather }) {
+function CurrentWeather({ background, weather, color }) {
   return (
     <View style={styles.container} colors={background}>
       <View style={styles.floatContainer}>
-        {/* <Image source={require("../../../assets/cloudy-sun.png")} /> */}
         <View>
           {SelectedWeatherSituation(
             weather?.results?.description,
@@ -24,7 +23,7 @@ function CurrentWeather({ background, weather }) {
           Min.: {weather?.results?.forecast[0]?.min}º
         </Text>
       </View>
-      <View style={styles.footer}>
+      <View style={{ ...styles.footer, backgroundColor: color.boxColor }}>
         <View style={styles.SimpleContainer}>
           <Image
             style={styles.icon}
