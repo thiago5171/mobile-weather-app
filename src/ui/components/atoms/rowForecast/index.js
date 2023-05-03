@@ -9,10 +9,6 @@ function RowForecast({ item }) {
   return (
     <View style={styles.containerForecastRow}>
       <Text style={styles.textRow}>{getCompleteDayWeek(item.weekday)}</Text>
-      {/* <Image
-        style={styles.iconContainerInsideTable}
-        source={require("../../../assets/sun.png")}
-      /> */}
       {SelectedWeatherSituation(
         item.description,
         styles.iconContainerInsideTable,
