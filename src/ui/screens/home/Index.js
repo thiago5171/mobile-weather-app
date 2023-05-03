@@ -33,7 +33,8 @@ function Home() {
         }
       })
       .catch((error) => {
-        console.log(error.config);
+        setData(weather);
+        console.log(error);
         return alert(
           "Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde."
         );
@@ -45,10 +46,7 @@ function Home() {
     api
       .get("", { params: { woeid: selectedOption } })
       .then((response) => {
-        console.log(response.data.results.currently);
-        console.log(response.data.results.description);
         setData(response.data);
-
         if (
           response.data.results.currently === "noite" ||
           response.data.results.description.includes("Chuv")
@@ -59,7 +57,7 @@ function Home() {
         }
       })
       .catch((error) => {
-        console.log(error.config);
+        console.log(error);
         setData(weather);
         return alert(
           "Acesso ao conteudo esta indisponivel no momento, verifique suas credenciais ou volte mais tarde."
