@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 30,
     marginTop: 10,
-    marginBottom: 15,
     paddingLeft: 20,
     paddingRight: 20,
     flexDirection: "row",
@@ -28,8 +27,9 @@ const styles = StyleSheet.create({
     margin: "5%",
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
     color: "#FFF",
+    fontWeight: "bold",
   },
   iconContainer: {
     marginTop: 6,

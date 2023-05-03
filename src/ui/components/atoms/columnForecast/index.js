@@ -6,15 +6,18 @@ import SelectedWeatherSituation from "../../../../core/utils/selectedWeatherSitu
 import Components from "../../../../core/utils/enum/components";
 
 export default function ColumnForecast({ data }) {
-  const isToday = data.date.includes(moment().format("DD/MM"))
+  const isToday = data.date.includes(moment().format("DD/MM"));
   return (
-    <View style={ isToday ? styles.contentWithBorder : styles.content  }>
+    <View style={isToday ? styles.contentWithBorder : styles.content}>
       <View style={styles.temperature}>
         <Text style={styles.textMaxAndMin}>{data.max}°C</Text>
       </View>
-      {SelectedWeatherSituation(data.description, styles.icon, Components.DAILY_TEMPERATURE)}
-      {/* 
-      <Image style={styles.icon} source={require("../../../assets/cloudy.png")} /> */}
+      {SelectedWeatherSituation(
+        data.description,
+        styles.icon,
+        Components.DAILY_TEMPERATURE
+      )}
+
       <Text style={styles.date}>{data.date}</Text>
     </View>
   );

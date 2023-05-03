@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
   content: {
     justifyContent: "space-around",
     alignItems: "center",
-    marginRight: 15,
+    marginRight: 7,
+    marginLeft: 7,
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 8,
@@ -15,7 +16,8 @@ const styles = StyleSheet.create({
   contentWithBorder: {
     justifyContent: "space-around",
     alignItems: "center",
-    marginRight: 15,
+    marginRight: 7,
+    marginLeft: 7,
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 8,
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
   date: {
     color: "#FFF",
     fontSize: 14,
-    fontWeight: "600",
+    fontWeight: "300",
   },
   icon: {
     width: 60,
@@ -40,6 +42,7 @@ const styles = StyleSheet.create({
 
   textMaxAndMin: {
     color: "#FFF",
+    fontWeight: "300",
     fontSize: 18,
   },
 });

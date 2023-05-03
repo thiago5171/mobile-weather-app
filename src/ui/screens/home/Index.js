@@ -12,7 +12,7 @@ import colors from "../../utils/generalColor";
 import weather from "../../../core/utils/mockWeather";
 
 function Home() {
-  const [selectedOption, setSelectedOption] = useState(455821);
+  const [selectedOption, setSelectedOption] = useState();
   const [data, setData] = useState({});
   const [color, setColor] = useState(colors.clearDay);
 
@@ -23,8 +23,13 @@ function Home() {
       .get("", { params: { woeid: selectedOption } })
       .then((response) => {
         setData(response.data);
-        if (response.data.results.currently === "noite") {
+        if (
+          response.data.results.currently === "noite" ||
+          response.data.results.description.includes("Chuv")
+        ) {
           setColor(colors.rainDay);
+        } else {
+          setColor(colors.clearDay);
         }
       })
       .catch((error) => {
@@ -40,10 +45,13 @@ function Home() {
     api
       .get("", { params: { woeid: selectedOption } })
       .then((response) => {
+        console.log(response.data.results.currently);
+        console.log(response.data.results.description);
         setData(response.data);
+
         if (
           response.data.results.currently === "noite" ||
-          response.data.results.currently.includes("Chuva")
+          response.data.results.description.includes("Chuv")
         ) {
           setColor(colors.rainDay);
         } else {
@@ -75,7 +83,6 @@ function Home() {
           />
           <CurrentWeather weather={data} color={color} />
           <DailyTemperature color={color} data={data} />
-
           <NextForecast data={data} color={color} />
         </View>
       </LinearGradient>

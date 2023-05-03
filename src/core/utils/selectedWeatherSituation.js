@@ -3,7 +3,7 @@ import { Image } from "react-native";
 
 function SelectedWeatherSituation(situation, styles, locale) {
   if (locale === Components.DAILY_TEMPERATURE) {
-    if (situation.includes("Chuvas")) {
+    if (situation.includes("Chuv")) {
       return (
         <Image
           style={{ ...styles, height: 40, width: 40 }}
@@ -24,7 +24,7 @@ function SelectedWeatherSituation(situation, styles, locale) {
       );
     }
   } else if (locale === Components.CURRENT_WEATHER) {
-    if (situation.includes("Chuvas")) {
+    if (situation.includes("Chuv")) {
       return (
         <Image
           style={styles}
@@ -47,7 +47,7 @@ function SelectedWeatherSituation(situation, styles, locale) {
       );
     }
   } else if (locale === Components.NEXT_FORECAST) {
-    if (situation.includes("Chuvas")) {
+    if (situation.includes("Chuv")) {
       return (
         <Image
           style={styles}

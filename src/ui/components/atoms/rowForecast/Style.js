@@ -12,15 +12,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   textRow: {
-    fontSize: 18,
+    fontSize: 14,
     color: "#fff",
     justifyContent: "flex-start",
     width: "45%",
     alignItems: "center",
   },
   textRowTemperature: {
-    fontSize: 18,
+    fontSize: 15,
     color: "#fff",
+    fontWeight: "400",
   },
   iconContainerInsideTable: {
     width: 35,

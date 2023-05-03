@@ -13,16 +13,20 @@ const styles = StyleSheet.create({
   },
   containerTitle: {
     width: "100%",
-    height: 30,
-    marginTop: 10,
-    marginBottom: 5,
+    height: 35,
+    marginTop: 13,
     paddingLeft: 10,
-    paddingRight: 20,
+    paddingRight: 10,
     flexDirection: "row",
     justifyContent: "space-between",
   },
   title: {
-    fontSize: 20,
+    fontSize: 15,
+    color: "#FFF",
+    fontWeight: "bold",
+  },
+  subTitle: {
+    fontSize: 15,
     color: "#FFF",
   },
 });

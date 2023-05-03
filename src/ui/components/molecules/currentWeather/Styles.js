@@ -16,14 +16,14 @@ const styles = StyleSheet.create({
   floatContainer: {
     alignItems: "center",
     justifyContent: "space-evenly",
-
+    marginBottom: 30,
     borderRadius: 10,
   },
   defaultText: {
     marginBottom: 5,
     color: "#FFF",
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: "400",
   },
   icon: {
     marginTop: 2,
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   infoIcon: {
     fontSize: 15,
     color: "#FFF",
+    fontWeight: "bold",
   },
   footer: {
     justifyContent: "space-between",

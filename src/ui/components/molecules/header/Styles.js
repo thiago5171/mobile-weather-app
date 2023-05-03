@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export const headerStyles = StyleSheet.create({
   container: {
     marginTop: 40,
+    width: "90%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

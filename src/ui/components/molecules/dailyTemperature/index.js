@@ -9,7 +9,7 @@ export default function DailyTemperature({ data, color }) {
     <View style={{ ...styles.container, backgroundColor: color.boxColor }}>
       <View style={styles.containerTitle}>
         <Text style={styles.title}>Today</Text>
-        <Text style={styles.title}>{moment().format("MMMM, DD")} </Text>
+        <Text style={styles.subTitle}>{moment().format("MMMM, DD")} </Text>
       </View>
       <FlatList
         showsHorizontalScrollIndicator={false}
