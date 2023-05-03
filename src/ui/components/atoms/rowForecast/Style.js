@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   containerForecastRow: {
     flexDirection: "row",
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
     flex: 1,
     width: "100%",
     height: 50,
@@ -14,14 +14,13 @@ const styles = StyleSheet.create({
   textRow: {
     fontSize: 18,
     color: "#fff",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     width: "45%",
     alignItems: "center",
-  }, 
+  },
   textRowTemperature: {
     fontSize: 18,
     color: "#fff",
-    
   },
   iconContainerInsideTable: {
     width: 35,
