@@ -1,37 +1,43 @@
-# Processo seletivo para desenvolvedor mobile
+# Aplicativo de Previsão do Tempo
 
-Olá,
+Este é um aplicativo de previsão do tempo para dispositivos móveis desenvolvido em React Native.
 
-Estamos em busca de pessoas que gostem de tecnologia e queiram fazer parte da nossa equipe de desenvolvimento mobile! Se você é um desenvolvedor apaixonado por novas tecnologias, que gosta de trabalhar em equipe e tem vontade de aprender, então essa é a sua chance.
+## Sumário:
+- [Funcionalidades](#funcionalidades)
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação e Configuração](#instalação-e-configuração)
 
-O processo seletivo é simples, vamos pedir que você desenvolva um aplicativo, para que possamos avaliar seu potencial. A instrução completa esta mais abaixo.
+---
 
-Depois dessa etapa, vamos avaliar todos os candidatos que realizarem a submissão no tempo correto, que serão convidados para uma entrevista final, com parte do nosso time, para discutir os detalhes e forma de  trabalho, basicamente para verificarmos se vai dar "_match_".
+### Funcionalidades:
 
-Caso seja selecionado, você irá trabalhar em um ambiente descontraído e inovador, com profissionais de alta qualidade e muitas oportunidades de aprendizado. Além disso, terá a chance de participar do desenvolvimento de um projeto inovador na área da educação.
+- Visualização da situação climática atual e da previsão para os próximos dias.
+- Suporte para amostragem do clima de várias cidades.
+- Cores e imagens dinâmicas que expressam as condições climáticas atuais.
+- Verificação da validade da chave de API recebida: a aplicação alertará o uso de uma chave inadequada e utilizará dados de teste quando isso ocorrer.
 
-E então, vamos nessa? Mostre para nós que você é o profissional que estamos procurando!
+---
 
-## Instruções
+### Pré-requisitos:
 
-Se você resolveu topar o desafio, vamos lá! Primeiro de tudo, faça o **fork** deste repositório. Você deverá desenvolver um aplicativo de previsão do tempo. O aplicativo pode ser desenvolvidor em [Flutter](https://flutter.dev/) ou [React-Native](https://reactnative.dev/).
+- O [Nodejs](https://nodejs.org/en) é necessário para rodar o ambiente javascript utilizado pela aplicação.
+- Tenha um gerenciador de pacotes javascript à disposição, recomenda-se o uso do [Yarn](https://yarnpkg.com/).
+- O [Expo](https://expo.dev/) deve estar instalado em seu dispositivo móvel, por meio de uma loja de apps ([Apple Store](https://www.apple.com/br/app-store/), [Play Store](https://play.google.com/store)).
 
-O resultado final deverá ser parecido com:
+---
 
-![](images/thumbnail-figma.png)
+### Instalação e Configuração:
 
-Esta tela pode ser encontrada neste [Figma Community](https://www.figma.com/community/file/1158928016905524023) criado pela [@becabelin](https://www.figma.com/@becabelin). Claro que uma ou outra coisa pode ser adaptada, mas essa adaptação depois poderá ser questionada na entrevista.
+1. Utilizando um ambiente de versionamento de software de sua preferência, faça um clone deste projeto.
+2. Estando em um terminal cujo caminho corresponda ao clone deste projeto, execute o comando `yarn install` para instalar as dependências utilizadas.
+3. Acesse o domínio [Api](https://console.hgbrasil.com/keys) e copie uma chave disponível para uso na coluna `Chave` da tabela exibida na página acessada.
+4. Vá até o arquivo `index.js` no diretório `./src/infra/index.js` e insira a chave copiada no objeto de criação da api em `params.key`, como na imagem:
+> ![image](https://user-images.githubusercontent.com/68082947/236066436-e761ad8c-4206-4fb3-aa1c-052989daa402.png)
+5. Utilize o comando `yarn expo start` para rodar o projeto.
+6. Inicie o aplicativo Expo.
+7. Selecione a opção de escanear e escaneie o QR code
+---
 
-Os dados podem ser consumidos da seguinte [API](https://api.hgbrasil.com/weather). Caso queira utilizar outra, escolha uma aberta e envie as intruções de uso, caso necessário.
+**Tudo pronto pra testar o app ^-^**
 
-Ao fim, altere o `README.md` com instruções para instalação e execução do aplicativo.
 
-Os pontos que serão avaliados:
-
-- fidelidade com o mock
-- funcionalidade
-- organização de componentes
-- organização de commits
-- organização de código
-
-Boa sorte 🍀! Aguardamos sua submissão!
